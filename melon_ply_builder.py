@@ -17,8 +17,8 @@ class MelonPlyBuilder:
     """
     TitleBasedPlyGenerator를 통해 얻은 곡 리스트 또는 사용자가 텍스트화 해놓은 곡 list와 제목을 멜론 플레이 리스트에 자동 등록한다.
     """
-    def __init__(self):
-        self.driver = webdriver.Chrome('./chromedriver.exe')
+    def __init__(self, chromedriver_path = './chromedriver.exe'):
+        self.driver = webdriver.Chrome(chromedriver_path)
         self.driver.implicitly_wait(2)
         self.driver.get('https://www.melon.com/index.htm')
         self.login_status = False
@@ -173,7 +173,7 @@ class MelonPlyBuilder:
 
 if __name__ == '__main__':
     play_list = ["[test] 테스트 플레이 리스트 입니다.",'selfish Jeremy Zucker', 'Good Daze (Feat. Shanin Blake) Jazzinuf']
-    ply_generator = MelonPlyBuilder()
+    ply_generator = MelonPlyBuilder(chromedriver_path = '../chromedriver')
 
     uid, password = input("Insert your Melon ID : "), input("Insert your Melon pwd : ")
     ply_generator.login(uid, password)
