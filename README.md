@@ -1,8 +1,22 @@
-# Melon-playlist-generater
+# Melon-playlist-generator
 
 ### 언제 검색하고 언제 추가해? 곡 목록만 입력하면 자동으로 멜론에 플레이 리스트를 생성합니다.
-
-
+  
+</br>
+  
+### **USAGE**
+1 ) download chromdriver
+```
+https://sites.google.com/chromium.org/driver/
+```
+2 ) move `chromdriver.exe` to your `chromedriver_path`  
+3 ) install selenium  
+```
+pip install selenium==3.141.0
+```
+  
+</br>
+  
 [Title-Based-Playlist-Generator](https://github.com/haeuuu/Title-Based-Playlist-Generator)의 연장선에 있는 Repository!  
 
 내가 입력한 제목에서 태그를 추출한 후 유사한 노래들을 찾아 플레이 리스트를 생성했다.  
@@ -26,14 +40,7 @@
 이 때 창 생성, 삭제, 전환 등을 고려해야 하고 숨겨진 버튼이 있다면 보여지도록 처리가 필요하다.
 
 
-
-## selenium과 chromdriver 설치하기
-
-> https://chromedriver.chromium.org/downloads
-
-
-
-## Xpath 다루는 법
+## Xpath 다루기
 
 
 
@@ -187,7 +194,7 @@ check_button.click() # ERROR
 
 ## 경고창 관리하기
 
-특히 팝송의 경우에는 음원이 갑자기 막히는 경우가 자주 일어난다.
+특히 팝송의 경우에는 권리사의 요청에 의해 ... 음원이 갑자기 막히는 경우가 자주 일어난다.
 
 이런 경우에는 아래처럼 체크박스가 활성화되지 않기 때문에, 아무것도 체크하지 않고 담기 버튼을 누르게 되므로
 
@@ -197,51 +204,7 @@ check_button.click() # ERROR
 
 
 
-곡 선택을 하지 않았다는 에러가 발생한다.
+곡 선택을 하지 않았다는 에러가 발생한다! 이런 경우에는 곡을 담지 않고 넘어가도록 처리한다.
 
 ![image-20201209172833434](fig/image-20201209172833434.png)
 
-
-
-
-
-## + XML
-
-컴퓨터에게 이 버튼을 클릭해! 라고 명령을 주어야 하는데 '이 버튼'이 무슨 버튼인지 어떻게 알려줘야 할까?
-
-페이지 내의 텍스트, 그림, 버튼 등의 정보는 모두 XML 형태로 저장되어 있다.
-
-XML은 문서가 tree 형태로 저장되고, 내가 원하는 data가 어느 노드를 타고 내려가야 있는지만 알려주면 된다. 이러한 path를 Xpath라고 한다.
-
-
-
-#### XML?
-
-> eXtensible Markup Language
->
-> 확장성 : 새로운 태그를 계속해서 만들어 붙일 수 있다.
-
-* Markup Language 의 예 : HTML
-
-* HTML은 이미 약속된 태그만 사용할 수 있다. 그러나 XML은 사용자 정의 태그를 사용할 수 있다.
-* 전자는 데이터를 보여주기 위한 목적이고 후자는 데이터를 저장/전달하기 위한 목적이다.
-* XML은 태그를 통해 데이터에 대한 설명을 제공한다.
-
-
-
-#### Xpath?
-
-> https://uuukpyo.tistory.com/14
-
-XML 문서의 특정 요소/속성에 접근하기 위한 경로를 지정하는 언어.
-
-트리 형태로 구성되고 /, // 등을 이용하여 루트노드와 자식노드를 찾아 탐색한다.
-
-
-
-#### F12 개발자 도구로 Xpath 찾기
-
-1. `F12` 로 개발자 도구를 연다.
-2. 개발자 도구의 왼쪽 위, 또는 `ctrl+shift+c`를 눌러 탐색 기능을 활성화한다.
-3. Xpath를 알고자 하는 정보를 클릭한다.
-4. 하이라이트된 XML을 이용해서 조작한다!
